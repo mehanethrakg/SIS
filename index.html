@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIS - Login</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-header">
+            <img src="logo.png" alt="University Logo" class="logo">
+            <h1>Student Information System</h1>
+            <p>Access your academic records and management tools</p>
+        </div>
+
+        <div class="login-tabs">
+            <button class="tab-btn active" data-tab="student">Student</button>
+            <button class="tab-btn" data-tab="staff">Staff</button>
+            <button class="tab-btn" data-tab="admin">Admin</button>
+        </div>
+
+        <div class="login-forms">
+            <!-- Student Login Form -->
+            <form id="student-form" class="login-form active">
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="student-id" placeholder="Student ID" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="student-password" placeholder="Password" required>
+                </div>
+                <div class="options">
+                    <label>
+                        <input type="checkbox" id="remember-student"> Remember me
+                    </label>
+                    <a href="#" class="forgot-password">Forgot password?</a>
+                </div>
+                <button type="submit" class="login-btn">Login as Student</button>
+            </form>
+
+            <!-- Staff Login Form -->
+            <form id="staff-form" class="login-form">
+                <div class="input-group">
+                    <i class="fas fa-user-tie"></i>
+                    <input type="text" id="staff-id" placeholder="Staff ID" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="staff-password" placeholder="Password" required>
+                </div>
+                <div class="options">
+                    <label>
+                        <input type="checkbox" id="remember-staff"> Remember me
+                    </label>
+                    <a href="#" class="forgot-password">Forgot password?</a>
+                </div>
+                <button type="submit" class="login-btn">Login as Staff</button>
+            </form>
+
+            <!-- Admin Login Form -->
+            <form id="admin-form" class="login-form">
+                <div class="input-group">
+                    <i class="fas fa-user-shield"></i>
+                    <input type="text" id="admin-id" placeholder="Admin ID" required>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="admin-password" placeholder="Password" required>
+                </div>
+                <div class="options">
+                    <label>
+                        <input type="checkbox" id="remember-admin"> Remember me
+                    </label>
+                    <a href="#" class="forgot-password">Forgot password?</a>
+                </div>
+                <button type="submit" class="login-btn">Login as Admin</button>
+            </form>
+        </div>
+
+        <div class="login-footer">
+            <p>Need help? <a href="#">Contact support</a></p>
+            <p class="copyright">&copy; 2023 Student Information System</p>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

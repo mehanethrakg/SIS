@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - School Management System</title>
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="profile-section">
+                <img src="D:\oose\oose\stu icon.webp" alt="Student Avatar" class="avatar">
+                <h3 class="student-name">John Doe</h3>
+                <p class="student-id">ID: S2023001</p>
+            </div>
+            <div class="sidebar-menu">
+                <div class="menu-item active" data-section="dashboard">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </div>
+                <div class="menu-item" data-section="students">
+                    <i class="fas fa-users"></i>
+                    <span>Students</span>
+                </div>
+                <div class="menu-item" data-section="staff">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <span>Staff</span>
+                </div>
+                <div class="menu-item" data-section="feedback">
+                    <i class="fas fa-comment-alt"></i>
+                    <span>Feedback</span>
+                </div>
+                <div class="menu-item" data-section="performance">
+                    <i class="fas fa-chart-line"></i>
+                    <span>Performance</span>
+                </div>
+                <div class="menu-item" data-section="settings">
+                    <i class="fas fa-cog"></i>
+                    <span>Settings</span>
+                </div>
+                <div class="menu-item" id="logout-btn">
+                    <i class="fas fa-sign-out-alt"></i>
+                    <span>Logout</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="header">
+                <h2>Dashboard</h2>
+                <div class="user-info">
+                    <img src="https://via.placeholder.com/40" alt="Admin">
+                    <span>Admin User</span>
+                </div>
+            </div>
+
+            <!-- Dashboard Section -->
+            <div class="section" id="dashboard-section">
+                <div class="cards">
+                    <div class="card">
+                        <div class="card-title">Total Students</div>
+                        <div class="card-value">1,245</div>
+                        <div class="card-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Total Staff</div>
+                        <div class="card-value">85</div>
+                        <div class="card-icon">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">New Feedback</div>
+                        <div class="card-value">24</div>
+                        <div class="card-icon">
+                            <i class="fas fa-comment-alt"></i>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Attendance Today</div>
+                        <div class="card-value">92%</div>
+                        <div class="card-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="charts">
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <h3>Student Performance</h3>
+                            <div class="chart-actions">
+                                <select id="performance-period">
+                                    <option>Last 7 Days</option>
+                                    <option>Last Month</option>
+                                    <option>Last Year</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="chart">
+                            <canvas id="performance-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <h3>Staff Distribution</h3>
+                        </div>
+                        <div class="chart">
+                            <canvas id="staff-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tables">
+                    <div class="table-container">
+                        <div class="table-header">
+                            <h3>Recent Feedback</h3>
+                            <button class="btn btn-primary" id="view-all-feedback">View All</button>
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Student</th>
+                                    <th>Date</th>
+                                    <th>Type</th>
+                                    <th>Status</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>John Doe</td>
+                                    <td>2023-05-15</td>
+                                    <td>Course Feedback</td>
+                                    <td><span class="status pending">Pending</span></td>
+                                    <td><button class="btn btn-primary">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Jane Smith</td>
+                                    <td>2023-05-14</td>
+                                    <td>Facility Issue</td>
+                                    <td><span class="status completed">Completed</span></td>
+                                    <td><button class="btn btn-primary">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Mike Johnson</td>
+                                    <td>2023-05-13</td>
+                                    <td>Teacher Feedback</td>
+                                    <td><span class="status completed">Completed</span></td>
+                                    <td><button class="btn btn-primary">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Sarah Williams</td>
+                                    <td>2023-05-12</td>
+                                    <td>Course Feedback</td>
+                                    <td><span class="status pending">Pending</span></td>
+                                    <td><button class="btn btn-primary">View</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table-container">
+                        <div class="table-header">
+                            <h3>Recent Activities</h3>
+                        </div>
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Activity</th>
+                                    <th>Date</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>New student registered</td>
+                                    <td>2023-05-15</td>
+                                    <td><button class="btn btn-primary">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Staff profile updated</td>
+                                    <td>2023-05-14</td>
+                                    <td><button class="btn btn-primary">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td>New feedback submitted</td>
+                                    <td>2023-05-13</td>
+                                    <td><button class="btn btn-primary">View</button></td>
+                                </tr>
+                                <tr>
+                                    <td>Student performance updated</td>
+                                    <td>2023-05-12</td>
+                                    <td><button class="btn btn-primary">View</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Students Section (Hidden by default) -->
+            <div class="section" id="students-section" style="display: none;">
+                <div class="table-header">
+                    <h3>Student Management</h3>
+                    <button class="btn btn-primary" id="add-student">Add Student</button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Class</th>
+                            <th>Contact</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="student-table-body">
+                        <!-- Student data will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Staff Section (Hidden by default) -->
+            <div class="section" id="staff-section" style="display: none;">
+                <div class="table-header">
+                    <h3>Staff Management</h3>
+                    <button class="btn btn-primary" id="add-staff">Add Staff</button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Position</th>
+                            <th>Department</th>
+                            <th>Contact</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="staff-table-body">
+                        <!-- Staff data will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Feedback Section (Hidden by default) -->
+            <div class="section" id="feedback-section" style="display: none;">
+                <div class="table-header">
+                    <h3>Feedback Management</h3>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Student</th>
+                            <th>Type</th>
+                            <th>Date</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="feedback-table-body">
+                        <!-- Feedback data will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Performance Section (Hidden by default) -->
+            <div class="section" id="performance-section" style="display: none;">
+                <div class="charts">
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <h3>Student Performance Analysis</h3>
+                            <div class="chart-actions">
+                                <select id="student-class-select">
+                                    <option>All Classes</option>
+                                    <option>Class 1</option>
+                                    <option>Class 2</option>
+                                    <option>Class 3</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="chart">
+                            <canvas id="detailed-performance-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="chart-container">
+                        <div class="chart-header">
+                            <h3>Staff Performance</h3>
+                        </div>
+                        <div class="chart">
+                            <canvas id="staff-performance-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Settings Section (Hidden by default) -->
+            <div class="section" id="settings-section" style="display: none;">
+                <div class="card">
+                    <div class="card-title">Admin Profile</div>
+                    <form id="admin-profile-form">
+                        <div class="form-group">
+                            <label for="admin-name">Name</label>
+                            <input type="text" id="admin-name" value="Admin User">
+                        </div>
+                        <div class="form-group">
+                            <label for="admin-email">Email</label>
+                            <input type="email" id="admin-email" value="admin@school.edu">
+                        </div>
+                        <div class="form-group">
+                            <label for="admin-password">Change Password</label>
+                            <input type="password" id="admin-password" placeholder="Enter new password">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Update Profile</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Student Modal -->
+    <div class="modal" id="student-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Student</h3>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="student-form">
+                    <div class="form-group">
+                        <label for="student-name">Full Name</label>
+                        <input type="text" id="student-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="student-class">Class</label>
+                        <select id="student-class" required>
+                            <option value="">Select Class</option>
+                            <option>Class 1</option>
+                            <option>Class 2</option>
+                            <option>Class 3</option>
+                            <option>Class 4</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="student-email">Email</label>
+                        <input type="email" id="student-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="student-phone">Phone</label>
+                        <input type="tel" id="student-phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="student-address">Address</label>
+                        <textarea id="student-address" rows="3"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save Student</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add Staff Modal -->
+    <div class="modal" id="staff-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Staff</h3>
+                <span class="close">&times;</span>
+            </div>
+            <div class="modal-body">
+                <form id="staff-form">
+                    <div class="form-group">
+                        <label for="staff-name">Full Name</label>
+                        <input type="text" id="staff-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="staff-position">Position</label>
+                        <select id="staff-position" required>
+                            <option value="">Select Position</option>
+                            <option>Teacher</option>
+                            <option>Administrator</option>
+                            <option>Librarian</option>
+                            <option>Counselor</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="staff-department">Department</label>
+                        <select id="staff-department" required>
+                            <option value="">Select Department</option>
+                            <option>Mathematics</option>
+                            <option>Science</option>
+                            <option>Languages</option>
+                            <option>Arts</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="staff-email">Email</label>
+                        <input type="email" id="staff-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="staff-phone">Phone</label>
+                        <input type="tel" id="staff-phone">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save Staff</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Dashboard | SIS</title>
+    <link rel="stylesheet" href="css/student.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <div class="sidebar">
+            <div class="profile-section">
+                <img src="student-avatar.png" alt="Student Avatar" class="avatar">
+                <h3 class="student-name">John Doe</h3>
+                <p class="student-id">ID: S2023001</p>
+            </div>
+            
+            <nav class="nav-menu">
+                <ul>
+                    <li class="active" data-section="student-details">
+                        <i class="fas fa-user"></i>
+                        <span>My Details</span>
+                    </li>
+                    <li data-section="marks">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>My Marks</span>
+                    </li>
+                    <li data-section="fee-payment">
+                        <i class="fas fa-money-bill-wave"></i>
+                        <span>Fee Payment</span>
+                    </li>
+                    <li data-section="feedback">
+                        <i class="fas fa-comment-alt"></i>
+                        <span>Feedback</span>
+                    </li>
+                    <li id="logout-btn">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <span>Logout</span>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="main-content">
+            <header class="content-header">
+                <h2 id="section-title">Student Details</h2>
+                <div class="notification-bell">
+                    <i class="fas fa-bell"></i>
+                    <span class="notification-count">3</span>
+                </div>
+            </header>
+
+            <div class="content-sections">
+                <!-- Student Details Section -->
+                <section id="student-details" class="content-section active">
+                    <div class="card">
+                        <h3 class="card-title">Personal Information</h3>
+                        <div class="student-info-grid">
+                            <div class="info-item">
+                                <span class="info-label">Full Name:</span>
+                                <span class="info-value">John Doe</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Student ID:</span>
+                                <span class="info-value">S2023001</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Date of Birth:</span>
+                                <span class="info-value">15/05/2000</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Gender:</span>
+                                <span class="info-value">Male</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Email:</span>
+                                <span class="info-value">john.doe@university.edu</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Phone:</span>
+                                <span class="info-value">+1 234 567 890</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3 class="card-title">Academic Information</h3>
+                        <div class="student-info-grid">
+                            <div class="info-item">
+                                <span class="info-label">Department:</span>
+                                <span class="info-value">Computer Science</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Program:</span>
+                                <span class="info-value">B.Sc. Computer Science</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Admission Year:</span>
+                                <span class="info-value">2023</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Current Semester:</span>
+                                <span class="info-value">2</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">CGPA:</span>
+                                <span class="info-value">3.75</span>
+                            </div>
+                            <div class="info-item">
+                                <span class="info-label">Advisor:</span>
+                                <span class="info-value">Dr. Smith</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Marks Section -->
+                <section id="marks" class="content-section">
+                    <div class="card">
+                        <h3 class="card-title">Academic Performance</h3>
+                        <div class="semester-selector">
+                            <label for="semester">Select Semester:</label>
+                            <select id="semester">
+                                <option value="1">Semester 1</option>
+                                <option value="2" selected>Semester 2</option>
+                                <option value="3">Semester 3</option>
+                                <option value="4">Semester 4</option>
+                            </select>
+                        </div>
+                        
+                        <div class="marks-table-container">
+                            <table class="marks-table">
+                                <thead>
+                                    <tr>
+                                        <th>Subject</th>
+                                        <th>Credit Hours</th>
+                                        <th>Marks Obtained</th>
+                                        <th>Grade</th>
+                                        <th>Status</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Data Structures</td>
+                                        <td>3</td>
+                                        <td>85</td>
+                                        <td>A</td>
+                                        <td><span class="status-pass">Pass</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Database Systems</td>
+                                        <td>3</td>
+                                        <td>78</td>
+                                        <td>B+</td>
+                                        <td><span class="status-pass">Pass</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Discrete Mathematics</td>
+                                        <td>4</td>
+                                        <td>92</td>
+                                        <td>A+</td>
+                                        <td><span class="status-pass">Pass</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Computer Networks</td>
+                                        <td>3</td>
+                                        <td>65</td>
+                                        <td>C</td>
+                                        <td><span class="status-pass">Pass</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        
+                        <div class="performance-summary">
+                            <div class="summary-item">
+                                <span>Semester GPA:</span>
+                                <strong>3.67</strong>
+                            </div>
+                            <div class="summary-item">
+                                <span>Total Credits:</span>
+                                <strong>13</strong>
+                            </div>
+                            <div class="summary-item">
+                                <span>Overall CGPA:</span>
+                                <strong>3.75</strong>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Fee Payment Section -->
+                <section id="fee-payment" class="content-section">
+                    <div class="card">
+                        <h3 class="card-title">Fee Payment</h3>
+                        <div class="fee-summary">
+                            <div class="fee-item">
+                                <span class="fee-label">Total Fee:</span>
+                                <span class="fee-value">$5,000.00</span>
+                            </div>
+                            <div class="fee-item">
+                                <span class="fee-label">Paid Amount:</span>
+                                <span class="fee-value">$3,200.00</span>
+                            </div>
+                            <div class="fee-item highlight">
+                                <span class="fee-label">Due Amount:</span>
+                                <span class="fee-value">$1,800.00</span>
+                            </div>
+                            <div class="fee-item">
+                                <span class="fee-label">Due Date:</span>
+                                <span class="fee-value">15/12/2023</span>
+                            </div>
+                        </div>
+                        
+                        <div class="payment-form">
+                            <h4>Make Payment</h4>
+                            <form id="payment-form">
+                                <div class="form-group">
+                                    <label for="payment-amount">Amount ($)</label>
+                                    <input type="number" id="payment-amount" min="1" max="1800" value="500">
+                                </div>
+                                <div class="form-group">
+                                    <label for="payment-method">Payment Method</label>
+                                    <select id="payment-method">
+                                        <option value="credit-card">Credit Card</option>
+                                        <option value="debit-card">Debit Card</option>
+                                        <option value="net-banking">Net Banking</option>
+                                        <option value="upi">UPI</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="pay-btn">Proceed to Payment</button>
+                            </form>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <h3 class="card-title">Payment History</h3>
+                        <div class="payment-history">
+                            <table class="history-table">
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Receipt No.</th>
+                                        <th>Amount</th>
+                                        <th>Method</th>
+                                        <th>Status</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>15/09/2023</td>
+                                        <td>R20230915-001</td>
+                                        <td>$1,500.00</td>
+                                        <td>Credit Card</td>
+                                        <td><span class="status-success">Success</span></td>
+                                        <td><button class="download-btn"><i class="fas fa-download"></i> Download</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>15/08/2023</td>
+                                        <td>R20230815-001</td>
+                                        <td>$1,200.00</td>
+                                        <td>Debit Card</td>
+                                        <td><span class="status-success">Success</span></td>
+                                        <td><button class="download-btn"><i class="fas fa-download"></i> Download</button></td>
+                                    </tr>
+                                    <tr>
+                                        <td>15/07/2023</td>
+                                        <td>R20230715-001</td>
+                                        <td>$500.00</td>
+                                        <td>Net Banking</td>
+                                        <td><span class="status-success">Success</span></td>
+                                        <td><button class="download-btn"><i class="fas fa-download"></i> Download</button></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Feedback Section -->
+                <section id="feedback" class="content-section">
+                    <div class="card">
+                        <h3 class="card-title">Submit Feedback</h3>
+                        <form id="feedback-form">
+                            <div class="form-group">
+                                <label for="feedback-type">Feedback Type</label>
+                                <select id="feedback-type">
+                                    <option value="">Select Feedback Type</option>
+                                    <option value="academic">Academic</option>
+                                    <option value="facilities">Facilities</option>
+                                    <option value="administration">Administration</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="feedback-subject">Subject</label>
+                                <input type="text" id="feedback-subject" placeholder="Enter subject">
+                            </div>
+                            <div class="form-group">
+                                <label for="feedback-message">Your Feedback</label>
+                                <textarea id="feedback-message" rows="5" placeholder="Please provide your feedback here..."></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn">Submit Feedback</button>
+                        </form>
+                    </div>
+                    
+                    <div class="card">
+                        <h3 class="card-title">Previous Feedback</h3>
+                        <div class="feedback-history">
+                            <div class="feedback-item">
+                                <div class="feedback-header">
+                                    <strong>Library Facilities Improvement</strong>
+                                    <span class="feedback-date">10/10/2023</span>
+                                </div>
+                                <div class="feedback-type">Facilities</div>
+                                <div class="feedback-content">
+                                    The library needs more computers and updated software for students to use. The current systems are outdated and slow.
+                                </div>
+                                <div class="feedback-status">
+                                    <span class="status-pending">Pending</span>
+                                </div>
+                            </div>
+                            
+                            <div class="feedback-item">
+                                <div class="feedback-header">
+                                    <strong>Course Material Availability</strong>
+                                    <span class="feedback-date">25/09/2023</span>
+                                </div>
+                                <div class="feedback-type">Academic</div>
+                                <div class="feedback-content">
+                                    Please ensure all course materials are uploaded to the portal at least one week before lectures begin.
+                                </div>
+                                <div class="feedback-status">
+                                    <span class="status-resolved">Resolved</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/student.js"></script>
+</body>
+</html>
